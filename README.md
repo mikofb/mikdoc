@@ -52,7 +52,7 @@ Only two languages are provided for now:
 </ul>
 
 ## Credentials
-All the views in this package is provided by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> free templates. 
+All the views in this package are provided by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> free templates. 
 
 ## License
 
