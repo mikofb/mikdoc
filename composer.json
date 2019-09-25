@@ -1,6 +1,7 @@
 {
     "name": "mikofb/mikdoc",
     "description": "A multi-user package for files and folder management.",
+    "keywords": ["laravel", "file", "documents", "management", "mulit-user"],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -10,10 +11,25 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "php": ">=7.2.8"
+    },
+    "require-dev":{
+        "laravel/framework": "~5.5.*|~5.6.*|~5.7.*|~5.8.*|~6.*"
+    },
     "autoload": {
         "psr-4": {
             "Mikofb\\Mikdoc\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mikofb\\Mikdoc\\MikdocServiceProvider"
+            ],
+            "aliases": {
+                "Mikdoc": "Mikofb\\Mikdoc\\Facades\\Mikdoc"
+            }
         }
     }
 }
