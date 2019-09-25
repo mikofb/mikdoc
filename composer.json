@@ -1,0 +1,19 @@
+{
+    "name": "mikofb/mikdoc",
+    "description": "A multi-user package for files and folder management.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikofb",
+            "email": "broukoffifranckmichael@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Mikofb\\Mikdoc\\": "src/"
+        }
+    }
+}

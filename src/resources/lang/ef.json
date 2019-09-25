@@ -1,0 +1,24 @@
+{
+	"Folder": "Dossier",
+	"Folders": "Dossiers",
+	"folder": "dossier",
+	"folders": "dossiers",
+	"File": "Fichier",
+	"Files": "Fichiers",
+	"file": "fichier",
+	"files": "fichiers",
+	"Research": "Rechercher",
+	"Create new folder": "Créer un nouveau dossier",
+	"Create a new folder": "Créer un nouveau dossier",
+	"Simple view": "Vue simplifiée",
+	"Details view": "Vue détaillée",
+	"name": "nom",
+	"size": "taille",
+	"last update": "dernière modification",
+	"Empty": "Vide",
+	"Account": "Compte",
+	"Dashboard": "Tableau de bord",
+	"Logout": "Déconnecter",
+	"root": "racine"
+
+}
