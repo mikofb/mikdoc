@@ -6,16 +6,15 @@ namespace Mikofb\Mikdoc\Models;
 use Storage;
 
 /**
- * 
- *
- *
- *
+ * Author: Brou Koffi Franck Michael
+ * Mail: broukoffifranckmichael.com
+ * Contact: (+225) 44 908 473
  */
 
 //TODO
 
 /**
- * Please check a root directory is created. If not, just create it with way:
+ * Please check a root directory is created. If not, just create it this way:
  * 
  * [
  *	'name' => 'root',
