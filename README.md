@@ -1,10 +1,4 @@
-<p align="center">
-
 # Mikdoc, a multi-user laravel package for files and folder management
-</p>
-<p align="center">
-    <img src="https://github.com/mikofb/mikdoc/tree/master/src/assets/img/Capture.PNG" width="562" height="388">
-</p>
 
 ## Installation
 
@@ -47,7 +41,6 @@ Only two languages are provided for now:
 	<li>English (en)</li>
 	<li>French (fr)</li>
 </ul>
-<br>
 
 ## Credentials
 All the views in this package is provided by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> free templates. 
