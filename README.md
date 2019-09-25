@@ -3,7 +3,7 @@
 # Mikdoc, a multi-user laravel package for files and folder management
 </p>
 <p align="center">
-    <img src="https://github.com/mikofb/mikdoc/tree/master/src/assets/img/Capture.png" width="562" height="388">
+    <img src="https://github.com/mikofb/mikdoc/tree/master/src/assets/img/Capture.PNG" width="562" height="388">
 </p>
 
 ## Installation
@@ -18,7 +18,7 @@ composer require mikofb/mikdoc
 
 ### Step 02: Migrate
 
-This step will create a `documents` table in your database!
+This step will create a `documents` table in your database! <br>
 :warning: Ensure that there's none for now.
 
 ```
