@@ -1,6 +1,6 @@
 {
     "name": "mikofb/mikdoc",
-    "description": "A multi-user package for files and folder management.",
+    "description": "A multi-user laravel package for files and folder management.",
     "keywords": ["laravel", "file", "documents", "management", "mulit-user"],
     "type": "library",
     "license": "MIT",
