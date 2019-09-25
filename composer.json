@@ -10,7 +10,7 @@
             "email": "broukoffifranckmichael@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7.2.8"
     },
