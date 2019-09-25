@@ -19,7 +19,16 @@ This step will create a `documents` table in your database! <br>
 php artisan migrate
 ```
 
-### Step 03: Publish assets and config file
+### Step 03: Register
+
+Here you have to register provider and aliase in your `config/app.php`
+
+<ul>
+	<li> Service provider: Mikofb\Mikdoc\MikdocServiceProvider::class,</li>
+	<li> Aliase: 'Mikdoc' => Mikofb\Mikdoc\Facades\Mikdoc::class, </li>
+</ul>
+
+### Step 04: Publish assets and config file
 
 Here we will create a `mikdoc.php` file in your config folder.
 
@@ -27,7 +36,7 @@ Here we will create a `mikdoc.php` file in your config folder.
 php artisan vendor:publish --provider="Mikofb\Mikdoc\MikdocServiceProvider"
 ```
 
-### Step 04: Check this out
+### Step 05: Check this out
 
 Finally, visit your domain url by adding `/documents` as prefix.
 
