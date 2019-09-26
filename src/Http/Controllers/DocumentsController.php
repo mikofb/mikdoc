@@ -107,13 +107,9 @@ class DocumentsController extends Controller
 
                 if (!is_null($parent)) 
                 {
-                	foreach ($parent->documents() as $document) 
-                	{
-	                    if ($document->name == $filename) 
-	                    {
-	                        return \Response::json(array('exists' => true ));
-	                    }
-	                }
+                	if ($parent->contains($filename)) {
+                		return \Response::json(array('exists' => true ));
+                	}
                 }
                 else
                 {
@@ -121,6 +117,9 @@ class DocumentsController extends Controller
                 }
 
                 $temp = Mikdoc::createFile($filename, Mikdoc::sizeForHumans(filesize($file)), $parent->id, auth()->user()->id);
+                if (is_null($temp)) {
+                	# code...
+                }
                 $file_to_store = strtotime($temp->created_at).'_'.$filename;
 
                 if (!Mikdoc::storeFile($file_to_store, $file)) 

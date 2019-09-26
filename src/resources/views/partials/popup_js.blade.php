@@ -31,7 +31,9 @@
   }
   function uploadCompleted(data) 
   {
+    // console.log(data.currentTarget)
     response = JSON.parse(data.currentTarget.response)
+    // console.log(response)
     if (response.success)
     {
       document.getElementById('message').innerHTML= '{{trans('mikdoc::messages.popups.upload_files.messages.success')}}';

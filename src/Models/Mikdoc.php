@@ -75,7 +75,8 @@ class Mikdoc
     public function createDocument($name, $size = null, $is_file = null, $parent = 1, $user = null)
     {
     	$t = $this->getUsingName($name);
-        if (is_null($t) || !$t->parent()->contains($name))
+    	$p = $this->getUsingId($parent);
+        if (is_null($t) && !$p->contains($name))
         {
         	$temp = $this->blankDocument($parent);
 	        $temp->name = $name;
@@ -85,7 +86,18 @@ class Mikdoc
 	        $temp->user_id = $user;
 	        $temp->save();
 	        return $temp;
-        }return null;
+        }
+        elseif(!is_null($t) && $t->parent()->id != $parent && !$p->contains($name)){
+        	$temp = $this->blankDocument($parent);
+	        $temp->name = $name;
+	        $temp->slug = Str::slug($name, $separator = '-');
+	        $temp->size = $size;
+	        $temp->is_file = $is_file;
+	        $temp->user_id = $user;
+	        $temp->save();
+	        return $temp;
+        }
+        return null;
     }
 
     /**

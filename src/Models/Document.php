@@ -41,7 +41,7 @@ class Document extends Model
      */
     public function documents(){
         if (!$this->is_file()) {
-            return $this->hasMany(Document::class);
+            return $this->hasMany(Document::class)->orderBy('is_file', 'ASC');
         }
     }
 
