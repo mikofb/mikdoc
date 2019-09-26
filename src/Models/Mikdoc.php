@@ -4,6 +4,7 @@ namespace Mikofb\Mikdoc\Models;
 
 
 use Storage;
+use Illuminate\Support\Str;
 
 /**
  * 
@@ -78,7 +79,7 @@ class Mikdoc
         {
         	$temp = $this->blankDocument($parent);
 	        $temp->name = $name;
-	        $temp->slug = str_slug($name, $separator = '-');
+	        $temp->slug = Str::slug($name, $separator = '-');
 	        $temp->size = $size;
 	        $temp->is_file = $is_file;
 	        $temp->user_id = $user;
