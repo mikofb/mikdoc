@@ -26,8 +26,8 @@ class Document extends Model
      */
     public function contains($name)
     {
-        foreach ($this->documents() as $document) {
-            if ($document->nom == $nom) {
+        foreach ($this->documents as $document) {
+            if ($document->name == $name) {
                 return true;
             }
         }return false;

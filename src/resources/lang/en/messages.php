@@ -27,7 +27,7 @@ return [
 				'label' => 'Please enter a name',
 				'waiting' => 'Creating folder...',
 				'success' => 'Folder created successfully!',
-				'error' => 'Oups, something went wrong!',
+				'error' => 'Oups, something went wrong! Maybe folder already exists',
 			],
 			'placeholder' => 'Folder\'s name',
 			'cancel_btn' => [

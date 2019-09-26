@@ -24,7 +24,7 @@ return [
 				'label' => 'Veuillez renseigner le nom du dossier',
 				'waiting' => 'Création du dossier...',
 				'success' => 'Dossier créé avec succès!',
-				'error' => 'Oups, une erreur est survenue!',
+				'error' => 'Oups, une erreur est survenue! Soit le dossier existe déjà.',
 			],
 			'placeholder' => 'Nom du dossier',
 			'cancel_btn' => [
