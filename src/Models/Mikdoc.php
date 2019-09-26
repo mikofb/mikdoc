@@ -196,6 +196,47 @@ class Mikdoc
         return false;
     }
 
+    public function getRoot()
+    {
+        return Document::where(
+        	[
+        		['name', 'root'],
+        		['slug', 'root']
+        	]
+        )->first();
+    }
+
+    /**
+	 * Checks if the given id exists or not
+	 *
+	 * @param \Mikofb\Mikdoc\Models\Document 
+	 * @return string $path
+	 
+    public function path(Document $doc)
+    {
+        //dd($doc);
+        $path = '';
+        if ($doc == $this->getRoot()) {
+        	$path = '/';
+        }
+        else{
+        	$path = $doc->name;
+        	
+        	if ($doc->parent() == $this->getRoot()) {
+        		$path = '/'.$doc->name;
+        	}
+        	else{
+        		$temp = $doc;
+        		while ($temp->parent() != $this->getRoot()) {
+        			$path = $temp->name.'/'.$path;
+        			$temp == $temp->parent();
+        		}
+        	}
+        }
+        dd($path);
+        return $path;
+    }*/
+
     /**
 	 * Checks if the given name exists or not
 	 *

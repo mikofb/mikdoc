@@ -3,6 +3,7 @@
 namespace Mikofb\Mikdoc\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Document extends Model
 {
@@ -78,6 +79,21 @@ class Document extends Model
     }
 
     /**
+     * Checks if current folder contains document with the given id
+     *
+     * @param int $id
+     * @return boolean
+     *
+     */
+    public function has($id){
+        foreach ($this->documents as $doc) {
+            if ($doc->id == $id) {
+                return true;
+            }
+        }return false;
+    }
+
+    /**
      * Change the document's parent
      *
      * @param int $id
@@ -97,6 +113,7 @@ class Document extends Model
     public function rename($name)
     {
     	$this->name = $name;
+        $this->slug = Str::slug($name, '-');
     	$this->save();
     }
 

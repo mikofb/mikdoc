@@ -17,9 +17,9 @@ return [
 	'header_total_files' => 'File',
 	'header_total_files_label' => 'You have',
 	'header_total_folders_label' => 'You have',
-	
+	'no_matches' => 'No matches found',
+	'close_result_display' => 'Close',
 	'root' => 'root',
-
 	'popups' => [
 		'new_folder' => [
 			'title' => 'New folder',
@@ -59,7 +59,6 @@ return [
 	'alert_destroy' => 'Are you sure to do this ?',
 	'type_file' => 'file',
 	'type_folder' => 'folder',
-
 	'research' => 'Research...',
 	'show_more' => 'Show more',
  	'send_to_mail' => 'Send to mail',
@@ -76,7 +75,6 @@ return [
  		'default' => 'Save',
  		'modifications' => 'Save modifications'
  	],
-
 	'name' => 'Name',
 	'size' => 'Size',
 	'last_update' => 'Last update',

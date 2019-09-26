@@ -15,7 +15,9 @@ return [
 	'header_total_folders' => 'Dossier',
 	'header_total_files' => 'Fichier',
 	'header_total_files_label' => 'Vous avez',
-	'header_total_folders_label' => 'Vous avez',	
+	'header_total_folders_label' => 'Vous avez',
+	'no_matches' => 'Aucune correspondance trouvée!',
+	'close_result_display' => 'Fermer',
 	'root' => 'root',
 	'popups' => [
 		'new_folder' => [

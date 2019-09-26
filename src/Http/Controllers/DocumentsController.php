@@ -20,6 +20,7 @@ class DocumentsController extends Controller
 	{
 		$document = Mikdoc::getUsingSlug($slug);
 		abort_unless(!is_null($document), 404, 'Document not found');
+		// Mikdoc::path($document);
 		if ($document->is_file()) 
 		{
 			return redirect()->route(config('mikdoc.routes.prefix').'.load', $document->slug);
@@ -143,22 +144,23 @@ class DocumentsController extends Controller
 		$document = Mikdoc::getUsingId($id);
 		$parent = Mikdoc::getUsingId($request->parent);
 		abort_unless(!is_null($document), 404, 'Document not found');
-		if (!$document->parent()->contains($request->name)) 
+		if ($document->name != $request->name && !$document->parent()->contains($request->name)) 
 		{
 			if ($document->is_file()) 
 			{
 				$old_name = strtotime($document->created_at).'_'.$document->name;
 	        	$new_name = strtotime($document->created_at).'_'.$request->name;
 	        	Mikdoc::renameFile($old_name, $new_name);
-
 			}
-	        if (!is_null($parent) && $parent != $document->parent()) 
-	        {
-	        	$document->changeParent($parent->id);
-	        }
+
 	        $document->rename($request->name);
 		}
-		return back();
+
+		if (!is_null($parent) && $parent->id != $document->parent()->id) 
+	    {
+	        $document->changeParent($parent->id);
+	    }
+		return redirect()->route(config('mikdoc.routes.prefix').'.operations', $document->slug);
 	}
 
 	public function destroy($id)
@@ -210,5 +212,53 @@ class DocumentsController extends Controller
 			}
 		}
 		return redirect()->route(config('mikdoc.routes.prefix').'.show', $parent->slug);
+	}
+
+	public function search()
+	{
+		 
+	}
+
+	public function search_query($value)
+	{
+		$output = '';
+		$type = '';
+		$color = '';
+		foreach (Mikdoc::getAll(auth()->user()->id) as $doc) 
+		{
+			if ($doc->name == $value) {
+				if ($doc->is_file()) {
+					$type = 'file';
+					$color = "blue";
+				}
+				else{
+					$type = 'folder';
+					$color = "yellow";
+				}
+				$output = $output."<tr>
+	                            <th scope='row'>
+	                              <div class='media align-items-center'>
+	                                <a href='#' class='icon icon-shape bg-secondary text-".$color." rounded-circle shadow'>
+	                                  <i class='fas fa-".$type."'></i>
+	                                </a>
+	                                <div class='media-body'>
+	                                  <span class='mb-0 text-sm'>
+	                                    <a href='".route(config('mikdoc.routes.prefix').'.show', $doc->parent()->slug)."' class='font-weight-light text-muted'>
+	                                      ".$doc->parent()->name." /
+	                                    </a>
+	                                    <a href='".route(config('mikdoc.routes.prefix').'.show', $doc->slug)."' class='font-weight-light'>
+	                                      ".$doc->name."
+	                                    </a>
+	                                  </span>
+	                                </div>
+	                              </div>
+	                            </th>
+	                          </tr>";
+			}
+		}
+		if ($output != '') {
+			return \Response::json($output);
+		}
+		return \Response::json(trans('mikdoc::messages.no_matches')); 
 	}
 }

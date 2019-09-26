@@ -1,41 +1,42 @@
 <script src="{{ asset('vendor/mikdoc/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script type="text/javascript">
-    $('#details_view_content').hide();
-    $(document).ready(function(){
-    $('#details_view_content').hide();
+    const xhr = new XMLHttpRequest();    
+    xhr.addEventListener('load', results);
     $('#input').keyup(function(){
-      search($(this).val(), '#table');
+      research($(this).val());
       });
-    function search(value, tableId){
-      $(tableId+' tr').each(function(){
-        var found = false;
-        $(this).each(function(){
-          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >=0 ){
-            found = true;
-          }else{
-            matches = 0;
-          }
-        });
-        if(found){
-          $(this).show();
-        }
-        else{
-          $(this).hide();
-        }
-      });
-    }  
-  });
-  // Switching between simpe and details view
-  jQuery(function($){
-    $('#details_view_content').hide();
+    function research(argument) {
+      if (argument != '') {
+        document.getElementById('results').setAttribute('hidden','hidden')
+        document.getElementById('results_display').innerHTML = ''
+        xhr.open('get', '{{ route(config('mikdoc.routes.prefix').'.search') }}'+'/'+argument);
+        xhr.send();
+      }
+    }
+    function results(data) {
+    //console.log(data)
+      response = JSON.parse(data.currentTarget.response)
+      //console.log(response)
+      document.getElementById('results').removeAttribute('hidden')
+      document.getElementById('results_display').innerHTML = response
+    }
+    //Switching between simpe and details view
     $('#simple_view_btn').click(function(){
-      $('#details_view_content').hide();
-      $('#simple_view_content').show();
+      switch_view('simple');
     });
     $('#details_view_btn').click(function(){
-      $('#simple_view_content').hide();
-      $('#details_view_content').show();
-    });
+      switch_view('details');
+  });
+    function switch_view(argument) {
+      if (argument == 'simple') {
+        document.getElementById('details_view_content').setAttribute('hidden', 'hidden')
+        document.getElementById('simple_view_content').removeAttribute('hidden')
+      }else if(argument == 'details'){
+        document.getElementById('simple_view_content').setAttribute('hidden', 'hidden')
+        document.getElementById('details_view_content').removeAttribute('hidden')
+      }
+    }
+  jQuery(function($){
     $('[data-method]').append(function(){
         return "\n"+
         "<form action='"+$(this).attr('href')+"' method='POST' name='"+$(this).attr('name')+"' style='display:none'>\n"+

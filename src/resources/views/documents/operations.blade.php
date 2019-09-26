@@ -166,11 +166,18 @@ Documents
 		                      				<option>@lang('mikdoc::messages.move.message')</option>
 		                      				<option value="1">@lang('mikdoc::messages.root')</option>
 		                      				@foreach($dossiers as $dossier)
-		                        				@if($dossier != $document)
-		                      				<option value="{{$dossier->id}}" {{$document->parent() == $dossier ? 'selected' : ''}}>
-		                      					{{$dossier->name}}
-		                      				</option>
-		                        				@endif
+                                    @if($document->is_file())
+                                    {{dd('file')}}
+                                    <option value="{{$dossier->id}}" {{$document->parent()->id == $dossier->id ? 'selected' : ''}}>
+                                    {{$dossier->name}}
+                                  </option>
+                                    @else
+                                      @if($dossier->id != $document->id && !$document->has($dossier->id))
+                                  <option value="{{$dossier->id}}" {{$document->parent()->id == $dossier->id ? 'selected' : ''}}>
+                                    {{$dossier->name}}
+                                  </option>
+                                      @endif
+                                    @endif
 		                      				@endforeach
 		                    			</select>
             						</div>

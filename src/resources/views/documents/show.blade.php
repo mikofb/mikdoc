@@ -42,6 +42,25 @@ Documents
                 </div>
               </div>
               <br>
+              <div class="row" id="results" hidden>
+                <div class="col card">
+                  <div class="card-body">
+                    <p class="text-right">
+                      <b>
+                        <a href="#!" class="btn btn-sm btn-info" data-toggle="tooltip" title="@lang('mikdoc::messages.close_result_display')" onclick="document.getElementById('results').setAttribute('hidden', 'hidden')">&times;</a>
+                      </b>
+                    </p>
+                    <hr class="my-2">
+                    <div class="table-responsive">
+                      <table class="table align-items-center table-flush" id="table">
+                        <tbody id="results_display">
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
               <div class="row icon-examples" id="simple_view_content">
                 @forelse($documents as $document)              
                 <div class="col-lg-3 col-md-6">
@@ -69,7 +88,7 @@ Documents
                 </div>
                 @endforelse
               </div>
-              <div class="table-responsive" id="details_view_content">
+              <div class="table-responsive" hidden id="details_view_content">
                 @if($documents->count() > 0)
                 <table class="table align-items-center table-flush" id="table">
                   <thead class="thead-light">
