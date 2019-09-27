@@ -52,7 +52,7 @@ class Document extends Model
      */
     public function is_empty(){
         if (!$this->is_file()) {
-            if ($this->documents()->count() == 0) {
+            if ($this->documents->count() == 0) {
                 return true;
             }
             return false;
