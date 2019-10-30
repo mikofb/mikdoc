@@ -1,2 +1,2 @@
 * linguist-vendored
-*.php linguist-vendored=true
+*.html linguist-vendored=false
