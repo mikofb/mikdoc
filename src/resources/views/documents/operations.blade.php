@@ -167,7 +167,6 @@ Documents
 		                      				<option value="1">@lang('mikdoc::messages.root')</option>
 		                      				@foreach($dossiers as $dossier)
                                     @if($document->is_file())
-                                    {{dd('file')}}
                                     <option value="{{$dossier->id}}" {{$document->parent()->id == $dossier->id ? 'selected' : ''}}>
                                     {{$dossier->name}}
                                   </option>
